@@ -1,14 +1,24 @@
-let = lifeBtn = document.querySelector('.button__life'),
-    lifeBtnBody = document.querySelector('.lifestyle__button');
-    loadContent = document.querySelector('.load__content'),
-    message = document.getElementById('message'),
-    sendBtn = document.getElementById('send');
+const form = document.querySelector('.input'),
+    send = document.getElementById('send'),
+    peep = document.getElementById('ass');
 
-lifeBtn.addEventListener('click', function() {
-    lifeBtnBody.style.display = 'none';
-    lifeBtn.style.display = 'none';
+//Событие получение данных с формы
+    form.addEventListener('submit', getFromValue);
 
-    if (lifeBtn.style.display == 'none') {
-        loadContent.style.display = 'flex';
+//функция получения данных с формы
+    function getFromValue(event) {
+        const name = form.querySelector('[name="message"]')
+        const data = {
+            name: name.value
+        }
+    
+        console.log(data);
+        event.preventDefault();
+
+        function sendValue() {
+            if (data["name"] == 'red') {
+                peep.style.fontSize = '50px';
+            }
+        }
+        sendValue();
     }
-});
